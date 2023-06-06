@@ -1,4 +1,6 @@
+<!--//includes -->
 <?php include "includes/admin_header.php"?>
+
 
     <div id="wrapper">
 
@@ -18,17 +20,22 @@
                             <small>Subheading</small>
                         </h1>
                     <div class="col-xs-6">
-                    <form action="">
+<?php    create() ;   ?>
+                
+     <form action="" method="post">
                     <div class="form-group">
                       <label for="cat-title">Add  Category</label>
-                       <input type="text" class="form-control" name="cat_title">
+                       <input type="text" class="form-control" name="cat_title_create">
                       
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Add Categorey">
+                        <input type="submit" name="create" class="btn btn-primary" value="Add Categorey">
                     </div>    
-                    </form>
-                     </div>
+ <?php if(isset($_GET['edit'])){
+            $cat_id = $_GET['edit'];
+         include "includes/update_categories.php"; }?>
+         </div>
+
                        
                     <div class="col-xs-6">
                            <table class="table table-bordered table-hover">
@@ -40,12 +47,15 @@
                                </thead>
                           
                            <tbody>
-                            <tr>
-                            <td>Baseball Categorey</td>
-                            <td>Basketball Categorey</td>   
-                           </tr>
+<?php             
+showcategories() ;
+delete();
+?>
+                       
+                       
                                
-                           </tbody>
+                               </tbody>
+
                             </table>
                        </div>
                        
